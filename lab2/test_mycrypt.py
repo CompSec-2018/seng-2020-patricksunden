@@ -47,7 +47,11 @@ def test_invalid_types(invalid_input):
     '''Invalid parameter types should raise TypeError'''
     with pytest.raises(TypeError):
         mycrypt.encode(invalid_input)
+    with pytest.raises(SystemExit):
+        mycrypt.encode(invalid_input)
 
+
+    
 
 def test_timing():
     '''Test whether encoding runs in approximately constant time, repetitions
@@ -63,3 +67,4 @@ def test_timing():
     timing2 = min(timeit.repeat('mycrypt.encode("a"*1000)',
                                 'import mycrypt', repeat=3, number=30))
     assert 0.95 * timing2 < timing1 < 1.05 * timing2
+

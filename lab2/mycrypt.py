@@ -23,10 +23,7 @@ def encode(s):
             # Rot13 the character for maximum security
             crypted+=codecs.encode(c,'rot13')
         
-        elif c == " ":
-            c.replace(" ", "")
-        else:
-            raise ValueError
+        
 
     return crypted[:origlen] #returning only the wanted length
 
